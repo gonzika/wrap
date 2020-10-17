@@ -9,31 +9,175 @@ a, h1,img {
     text-decoration: none;
 }
 
+html {
+    font-size: 10px;
+}
+
 body {
     background-color: #e2e7ec;
     font-family: "Hans Kendrick V4";
+    font-size: 1.6rem;
 }
 
 .container {
-    width: 1120px;
-    margin: 50px auto;
+    max-width: 1140px;
+    margin: 0 auto;
 }
 
-.news {
+.flex {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.slide1 {
+.flex--item {
+    width: 360px;
+    position: relative;
+    background-color: #fff;
+    margin: 10px;
+}
+
+.flex--item-lg {
     width: 740px;
+}
+
+.post {
     height: 540px;
     position: relative;
-    margin-top: 20px;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
 }
 
-.gradient {
+.post--lg .post__img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #ffffff00, #62626200 30%, rgba(0, 0, 0));
+    transition: all .3s ease-in;
+    transform: scale(1.5);
+}
+
+.post--lg:hover .post__img::after {
+    transform: scale(1);
+}
+
+.post--lg .post__img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #ffffff00, #62626200 30%, rgba(0, 0, 0));
+}
+
+.post:hover {
+    box-shadow: 0 0 5px rgba(141, 141, 141, 0.658);
+}
+
+
+.post__link {
+    display: block;
+    /* padding-bottom: 100px; */
+}
+
+.post_autor {
+    position: absolute;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    left: 30px;
+    bottom: 30px;
+    overflow: hidden;
+}
+
+
+
+.post_autor img {
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.post__img {
+    overflow: hidden;
+}
+
+
+.post__img img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.post__data {
+    padding: 30px;
+}
+
+.post--lg .post__data {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.post__time {
+    font-size: 1.4rem;
+    color: #818181;
+}
+
+.post__title {
+    font-size: 2.2rem;
+    color: #1d1d1d;
+    line-height: 3rem;
+    margin-top: 15px;
+    font-weight: 700;
+    max-height: 12rem;
+    overflow: hidden;
+}
+
+.post--lg .post__time {
+    font-size: 1.3rem;
+    color: #818181;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    
+}
+  
+.post--lg .post__title  {
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2;
+    max-width: 70%;
+}
+
+.post_autor:hover {
+    opacity: 0.9;
+    transition: all .3s ease-in;
+}
+
+.post_autor:hover img {
+    transform: scale(1.1);
+    transition: all .4s ease-in;
+}
+
+.post__title:hover {
+    text-shadow: 1px 1px 3px #8693a0;
+    transition: all .3s ease-in;
+}
+
+/* 
+.post--lg {
+
+} 
+*/
+
+/* .gradient {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #ffffff00, #62626200 30%, rgba(0, 0, 0));
@@ -43,6 +187,8 @@ body {
 .slide1 img {
     position: absolute;
     z-index: -5;
+    max-width: 100%;
+    max-height: auto;
 }
 
 .slide1__footer {
@@ -52,49 +198,24 @@ body {
     max-width: 520px;
 }
 
-.slide1 p {
-    font-family: "Hans Kendrick V4";
-    font-size: 13px;
-    color: #818181;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-  
-.slide1 h1  {
-    font-size: 30px;
-    font-family: "Hans Kendrick V4";
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1.2;
-    margin: 0;
-}
 
-.slide2 {
-    width: 360px;
-    height: 540px;
-    position: relative;
-    background-color: #fff;
-    margin-top: 20px;
-}
 
-.slide2 div a img {
+
+
+.flex--item div a img {
     width: 360px;
     height: 251px;
 }
 
-.slide2 div a:hover img {
+.flex--item div a:hover img {
     opacity: 0.8;
 }
 
-.slide2:hover {
-    box-shadow: 0 0 5px rgba(141, 141, 141, 0.658);
-}
-
-.slide2__footer {
+.flex--item__footer {
     padding: 30px 25px;
 }
   
-.slide2 p {
+.flex--item p {
     font-family: "Hans Kendrick V4";
     font-size: 13px;
     color: #818181;
@@ -104,7 +225,7 @@ body {
     margin-bottom: 20px;
 }
   
-.slide2 h1  {
+.flex--item h1  {
     font-size: 22px;
     color: #1d1d1d;
     text-transform: uppercase;
@@ -112,7 +233,7 @@ body {
     margin: 0;
 }
 
-.slide2__bottom-foto {
+.flex--item__bottom-foto {
     position: absolute;
     bottom: 25px;
     left: 25px;
@@ -120,13 +241,7 @@ body {
     border-radius: 50%;
 }
 
-a:hover .slide2__bottom-foto {
-    box-shadow: 0 0 18px #90f81a;
-}
 
-.news a:hover h1 {
-    text-shadow: 1px 1px 3px #8693a0;
-}
 
 .load {
 text-align: center;
@@ -142,4 +257,4 @@ justify-content: center;
     margin-left: 15px;
     display: flex;
     align-items: center;
-}
+} */
